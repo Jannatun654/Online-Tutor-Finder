@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="Online_Private_Tutors_Finder_System.MainMaster" %>
+
+<!DOCTYPE html>
+
+
+<html>
+<head runat="server">
+    <title>Online Private Tutors Finder System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.css"/>
+    
+	<link href="css/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body >
+    <form id="form1" runat="server">
+        <div >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <asp:LinkButton ID="Tutor" CssClass="navbar-brand" runat="server" >Tutor Finder</asp:LinkButton>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+		  <asp:LinkButton CssClass="nav-link" ID="linkWelcomePage" runat="server"  PostBackUrl="~/DefultPage.aspx">Welcome</asp:LinkButton>
+         </li>
+         <li class="nav-item active">
+		  <asp:LinkButton CssClass="nav-link" ID="linkHomePage" runat="server" Visible="false" PostBackUrl="~/homePage.aspx">Home</asp:LinkButton>
+         </li>
+      <li class="nav-item active">
+		  <asp:LinkButton CssClass="nav-link" ID="linkAboutPage" runat="server" PostBackUrl="~/aboutPage.aspx">About</asp:LinkButton>
+      </li>
+         <li class="nav-item active">
+         <asp:LinkButton CssClass="nav-link" ID="linkContactusPage" runat="server" PostBackUrl="~/contactusPage.aspx">Contuct Us</asp:LinkButton>
+      </li>      
+    </ul>
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+              <asp:LinkButton CssClass="nav-link" runat="server" ID="linkregisterPage" PostBackUrl="~/registationPage.aspx">Register</asp:LinkButton>
+          </li>
+           <li class="nav-item active">
+              <asp:LinkButton CssClass="nav-link" runat="server" ID="linkloginPage" PostBackUrl="~/loginPage.aspx">Login</asp:LinkButton>
+          </li>
+           <li class="nav-item active">
+              <asp:LinkButton CssClass="nav-link" runat="server"  ID="linklogout" Visible="false" OnClick="linklogout_Click" >Logout</asp:LinkButton>
+          </li>
+           <li class="nav-item active">
+              <asp:LinkButton CssClass="nav-link" runat="server" Visible="false" ID="linkHelloUser" >Hello User</asp:LinkButton>
+          </li>
+      </ul>
+  
+  </div>
+</nav>
+        
+			<div class="container-fluid m-0 p-0">
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                 </asp:ContentPlaceHolder>
+			</div>
+           
+       
+           <footer>
+			   <div id="footer1" class="container-fluid">
+                   <div class="row">
+					   <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+						   <p>
+
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkAdminDashboardPagg" Visible="false" PostBackUrl="~/Admin/adminDashboard.aspx" >Admin Dashboard</asp:LinkButton>
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkAddAStudentPage" Visible="false" PostBackUrl="~/Admin/studentRegisterPage.aspx" >Add A Student</asp:LinkButton>
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkStudentManagementPage" Visible="false" PostBackUrl="~/Admin/studentManagementPage.aspx" >Student Manage</asp:LinkButton>
+
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkAddATutor" Visible="false" PostBackUrl="~/Admin/tutoreRegistationPage.aspx" >Add A Tutor</asp:LinkButton>
+                               &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="LinkTutorPage" Visible="false" PostBackUrl="~/Admin/tutorManagementPage.aspx" >Tutor Manage</asp:LinkButton>                            
+                               &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkAddAParentPagg"  Visible="false" PostBackUrl="~/Admin/parentRegistationPage.aspx" >Add A Parent</asp:LinkButton>
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkParentManagementPage" Visible="false" PostBackUrl="~/Admin/parentManagementPage.aspx" >Parent Manage</asp:LinkButton>
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linlGetAllInquirisPage"  Visible="false" PostBackUrl="~/Admin/getAllInquiresPage.aspx" >Parent Inquiris</asp:LinkButton>
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkParentDashBoardPage" Visible="false" PostBackUrl="~/Parents/parentDashboard.aspx" >Parent Dashboard</asp:LinkButton>
+
+                                &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkReserveATutorPage" Visible="false" PostBackUrl="~/Parents/getAllReserveATutor.aspx" >Reserve A Tutor</asp:LinkButton> 
+                                 &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkRateTutorAddPage" Visible="false" PostBackUrl="~/Parents/addedTutorRatingPage.aspx" >Rate a Tutore</asp:LinkButton>
+                                 &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkTitorDashboardPage" Visible="false" PostBackUrl="~/Tutor/tutorDashboardPage.aspx" >Tutor Dashboard</asp:LinkButton>
+                                 &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkReservationPage" Visible="false" PostBackUrl="~/Tutor/reservationManageRequiestPage.aspx" >Reservation</asp:LinkButton>
+                                 &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkViewRatingPage" Visible="false" PostBackUrl="~/Tutor/viewRatigsPage.aspx" >Vew Rating</asp:LinkButton>
+                                  &nbsp
+                                <asp:LinkButton CssClass="footerlink" runat="server" ID="linkViewTutorRequistListPage" Visible="false" PostBackUrl="~/Parents/getRequstTutorListPage.aspx" >Tutor Requist</asp:LinkButton>
+                               
+                           </p>
+					   </div>
+                   </div>
+
+			   </div>
+			   <p id="footer2" class="text-center text-light" > &copy All right Reversed . <a href="#" class="footerlink" target="_blank">Jannatun Nayem Jemy</a></p>
+           </footer> 
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script> 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.24/datatables.min.js"></script>
+
+</body>
+</html>
